@@ -1,0 +1,27 @@
+[
+  {
+    "imageSrc": "images/kick.png",
+    "desc": "kick drum",
+    "title": "Project Title",
+    "summary": "Write a summary about this project here. Write a description about what the image/figure shows.",
+    "application": "Python",
+    "projectType": "Category 1"
+  },
+  {
+    "imageSrc": "images/tom4.png",
+    "desc": "tom drum",
+    "title": "Project Title in Different Category",
+    "summary": "Write a summary about this project here. Write a description about what the image/figure shows.",
+    "application": "Adobe",
+    "projectType": "Category 2"
+  },
+  {
+    "imageSrc": "images/snare.png",
+    "desc": "snare drum",
+    "title": "Another Project Title",
+    "summary": "Write a summary about this project here. Write a description about what the image/figure shows.",
+    "application": "Java",
+    "projectType": "Category 1"
+  }
+]
+  
