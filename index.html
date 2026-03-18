@@ -18,7 +18,13 @@
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg fixed-top">
   <div class="container">
-    <a class="navbar-brand" href="#home">MO</a>
+    <a class="navbar-brand mo-element" href="#home">
+      <span class="mo-default">MO</span>
+      <span class="mo-periodic" aria-hidden="true">
+        <span class="mo-num">42</span>
+        <span class="mo-sym">Mo</span>
+      </span>
+    </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -49,7 +55,7 @@
     <div class="row align-items-center">
 
       <div class="col-1 col-w">
-        <p class="bracket open">{</p>
+        <p class="bracket open heartbeat">{</p>
       </div>
 
       <div class="col-4 col-w2">
@@ -65,7 +71,7 @@
       </div>
 
       <div class="col-1 col-w">
-        <p class="bracket closed">}</p>
+        <p class="bracket closed heartbeat">}</p>
       </div>
 
     </div>
@@ -84,7 +90,17 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12 about-head">
-        <h2>About Me</h2>
+        <h2 class="about-title">
+          <span class="about-text-default">About Me</span>
+          <span class="about-atom" id="he-atom" aria-hidden="true">
+            <span class="atom-number">2</span>
+            <span class="atom-symbol">He</span>
+            <span class="atom-name" id="he-label">Helium</span>
+            <span class="atom-mass" id="he-mass">4.003</span>
+            <span class="orbit orbit-1"><span class="electron"></span></span>
+            <span class="orbit orbit-2"><span class="electron"></span></span>
+          </span>
+        </h2>
         <hr class="accent">
       </div>
     </div>
@@ -221,6 +237,24 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 window.addEventListener('scroll', () => {
     document.querySelector('.navbar').classList.toggle('scrolled', window.scrollY > 50);
 });
+
+// He isotope toggle
+const isotopes = [
+    { name: 'Helium', mass: '4.003' },
+    { name: 'He-3', mass: '3.016' },
+    { name: 'He-4', mass: '4.003' },
+];
+let isoIndex = 0;
+const heAtom = document.getElementById('he-atom');
+if (heAtom) {
+    heAtom.addEventListener('click', () => {
+        isoIndex = (isoIndex + 1) % isotopes.length;
+        document.getElementById('he-label').textContent = isotopes[isoIndex].name;
+        document.getElementById('he-mass').textContent = isotopes[isoIndex].mass;
+        heAtom.classList.add('iso-flash');
+        setTimeout(() => heAtom.classList.remove('iso-flash'), 300);
+    });
+}
 </script>
 </body>
 </html>
